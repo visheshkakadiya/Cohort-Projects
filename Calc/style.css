@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #1b1b2f, #2a2a72, #3b3b98);
+    background-size: 400% 400%;
+    animation: darkRGBFlow 8s infinite linear;
+}
+
+@keyframes darkRGBFlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+
+#container {
+    background: #17171c;
+    width: 320px;
+    border-radius: 40px;
+    padding: 20px 15px;
+}
+
+#screen {
+    height: 120px;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    font-size: 45px;
+    font-weight: 300;
+}
+
+#keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#func, #third, #second, #first, #last {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+button {
+    width: 65px;
+    height: 65px;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(145deg, #3a3a3a, #222222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px #141414, -5px -5px 10px #2c2c2e;
+    transition: all 0.1s ease-in-out;
+}
+
+/* Press Effect */
+button:active {
+    transform: translateY(3px);
+    box-shadow: inset 5px 5px 10px #141414, inset -5px -5px 10px #2c2c2e;
+}
+
+/* Function buttons (top row) */
+#C, #cut, #modulus {
+    background: #4e4e4e;
+    color: black;
+    font-weight: 500;
+}
+
+/* Operator buttons */
+#divide, #multi, #minus, #plus, #result {
+    background: #ff9f0a;
+    color: white;
+    font-size: 28px;
+}
+
+/* Zero button */
+#last {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+#zero {
+    width: 140px;
+    border-radius: 35px;
+    padding-left: 0;
+    text-align: left;
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Font sizes adjustments */
+#fa-solid {
+    font-size: 22px;
+}
+
+#C {
+    font-size: 22px;
+}
+
+/* Specific color adjustments */
+#C, #cut, #modulus {
+    background: #a5a5a5;
+    color: #000;
+}
+
+button:not(#C):not(#cut):not(#modulus):not(#divide):not(#multi):not(#minus):not(#plus):not(#result) {
+    background: #333333;
+    color: white;
+}
